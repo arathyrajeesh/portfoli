@@ -192,20 +192,19 @@ body {
 
 .av-wrap {
   position: relative;
-  width: 248px;
-  height: 296px;
+  width: 320px;
+  height: 420px;
   margin-bottom: -36px;
-  z-index: 4;          /* ← ADD: sits above the name */
+  z-index: 2;   /* ← lower, goes behind name */
 }
 
 .av-img {
-  mix-blend-mode: luminosity;  /* or try: lighten */
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top;
-  border-radius: 140px 140px 0 0;
-  display: block
+  display: block;
+  mix-blend-mode: lighten;  /* ← blends away any dark residue */
 }
 
 .av-fallback {
@@ -226,11 +225,21 @@ body {
   font-weight: 900;
   line-height: 0.85;
   letter-spacing: -0.03em;
-  color: var(--text);
   position: relative;
-  z-index: 3;           /* keep as-is, name is below avatar */
+  z-index: 5;
   text-align: center;
-  margin-top: -60px;    /* ← ADD: pull name up to overlap behind avatar */
+  margin-top: -60px;
+  background: linear-gradient(180deg, 
+    #ffffff 0%, 
+    #d4d4d4 35%, 
+    #4ade80 70%, 
+    #22c55e 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 80px rgba(74, 222, 128, 0.4))
+         drop-shadow(0 0 30px rgba(74, 222, 128, 0.6));
 }
 
 /* logo row */

@@ -975,7 +975,7 @@ footer .container {
 .contact-badge-text{
   font-size:12px;
   font-weight:600;
-  color:#8a6a00;
+  color:#03260e;
   letter-spacing:.05em;
 }
 
@@ -1035,7 +1035,7 @@ footer .container {
 
 .clickable-direct:hover .direct-contact-icon{
   transform:translateY(-3px);
-  background:#f5c400;
+  background:#03260e;
   color:#111;
 }
 
@@ -1046,7 +1046,7 @@ footer .container {
 /* RIGHT CARD */
 
 .accent-contact-card{
-  background:#f5c400;
+  background:#03260e;
   border-radius:28px;
   padding:42px;
   box-shadow:
@@ -1090,7 +1090,7 @@ footer .container {
 
 .accent-contact-card input::placeholder,
 .accent-contact-card textarea::placeholder{
-  color:#9c7d00;
+  color:#03260e;
 }
 
 .accent-contact-card input:focus,
@@ -1139,7 +1139,7 @@ footer .container {
 
 .btn-submit-accent:hover .btn-submit-icon-wrapper{
   transform:rotate(18deg);
-  background:#f5c400;
+  background:#03260e;
   color:#111;
 }
 

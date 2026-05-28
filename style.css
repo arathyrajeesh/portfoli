@@ -178,7 +178,7 @@ body {
   align-items: center;
   position: relative;
   z-index: 2;
-  isolation: isolate;   /* ← ADD: creates stacking context */
+  isolation: isolate;  /* ← ADD: creates stacking context */
 }
 
 .brand-small {
@@ -1576,4 +1576,194 @@ footer .container {
   background:var(--accent);
   color:#000;
   transform:translateY(-3px) scale(1.05);
+}
+
+/* SKILLS */
+
+#skills{
+  background:#111114;
+}
+
+.skills-top{
+  margin-bottom:40px;
+}
+
+.skills-title{
+  font-family:var(--fd);
+  font-size:clamp(34px,5vw,56px);
+  font-weight:700;
+  line-height:1.1;
+  margin-top:8px;
+}
+
+.tech-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+
+.tech-card{
+  position:relative;
+
+  background:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,.03),
+    rgba(255,255,255,.015)
+  );
+
+  border:1px solid rgba(255,255,255,.06);
+
+  border-radius:24px;
+
+  padding:34px 26px;
+
+  overflow:hidden;
+
+  transition:.35s;
+}
+
+.tech-card::before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+  radial-gradient(
+    circle at top left,
+    #111114,
+    transparent 50%
+  );
+
+  opacity:0;
+
+  transition:.35s;
+}
+
+.tech-card:hover::before{
+  opacity:1;
+}
+
+.tech-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(74,222,128,.18);
+}
+
+.tech-icon{
+  width:72px;
+  height:72px;
+
+  margin-bottom:28px;
+
+  display:grid;
+  place-items:center;
+}
+
+.tech-icon img{
+  width:64px;
+  height:64px;
+  object-fit:contain;
+}
+
+.express{
+  font-size:52px;
+  font-weight:300;
+  color:#fff;
+  font-family:var(--fb);
+}
+
+.tech-card h3{
+  font-size:24px;
+  font-weight:600;
+  margin-bottom:2px;
+}
+
+.tech-card span{
+  font-size:14px;
+  color:var(--muted);
+}
+
+.skill-bar{
+  width:100%;
+  height:8px;
+
+  margin-top:28px;
+
+  border-radius:100px;
+
+  background:#111114;
+
+  overflow:hidden;
+}
+
+.skill-fill{
+  height:100%;
+  border-radius:100px;
+}
+
+.mongo-fill{
+  width:78%;
+  background:#4ade80;
+}
+
+.express-fill{
+  width:35%;
+  background:#d1d5db;
+}
+
+.react-fill{
+  width:82%;
+  background:#38bdf8;
+}
+
+.node-fill{
+  width:74%;
+  background:#84cc16;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .tech-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:600px){
+
+  .tech-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+.py-text,
+.drf-text{
+  font-size:42px;
+  font-weight:700;
+  color:#fff;
+  font-family:var(--fd);
+  letter-spacing:-2px;
+}
+
+.django-fill{
+  width:85%;
+  background:#4ade80;
+}
+
+.python-fill{
+  width:90%;
+  background:#facc15;
+}
+
+.react-fill{
+  width:82%;
+  background:#38bdf8;
+}
+
+.drf-fill{
+  width:80%;
+  background:#f87171;
 }

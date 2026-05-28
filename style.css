@@ -655,7 +655,7 @@ section:not(#home) {
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: var(--text);
+  color:rgb(255, 255, 255);
   margin-bottom: 20px;
 }
 
@@ -674,11 +674,7 @@ section:not(#home) {
   justify-content: start;
 }
 
-.direct-contact-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
+
 
 .direct-contact-icon {
   width: 44px;
@@ -742,7 +738,7 @@ section:not(#home) {
   font-family: var(--fb);
   font-size: 13px;
   font-weight: 500;
-  color: #062f17;
+  color: #ffffff;
   letter-spacing: normal;
   text-transform: none;
 }
@@ -979,15 +975,7 @@ footer .container {
   letter-spacing:.05em;
 }
 
-.contact-title{
-  font-family:var(--fd);
-  font-size:clamp(46px,5vw,78px);
-  line-height:.95;
-  letter-spacing:-0.04em;
-  color:#111;
-  margin-bottom:24px;
-  max-width:580px;
-}
+
 
 .contact-subtitle{
   font-size:17px;
@@ -1026,7 +1014,7 @@ footer .container {
 .direct-contact-val{
   font-size:15px;
   font-weight:600;
-  color:#222;
+  color:#ffffff;
 }
 
 .clickable-direct{
@@ -1039,9 +1027,6 @@ footer .container {
   color:#111;
 }
 
-.clickable-direct:hover .direct-contact-val{
-  color:#000;
-}
 
 /* RIGHT CARD */
 
@@ -1070,7 +1055,7 @@ footer .container {
 .fg label{
   font-size:14px;
   font-weight:600;
-  color:#6f5600;
+  color:#ffffff;
 }
 
 .accent-contact-card input,
@@ -1079,7 +1064,7 @@ footer .container {
   width:100%;
   border:none;
   outline:none;
-  background:#ffe681;
+  background:#ffffff;
   padding:16px 18px;
   border-radius:14px;
   font-size:15px;

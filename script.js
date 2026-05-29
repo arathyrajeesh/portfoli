@@ -56,44 +56,47 @@ document.querySelectorAll('.clickable-direct').forEach(element => {
   });
 });
 
-// ─── EmailJS Setup ───
-const PUBLIC_KEY   = 'YOUR_PUBLIC_KEY';
-const SERVICE_ID   = 'YOUR_SERVICE_ID';
-const TEMPLATE_ID  = 'YOUR_TEMPLATE_ID';
-
-if (typeof emailjs !== 'undefined' && PUBLIC_KEY && !PUBLIC_KEY.startsWith('YOUR_')) {
-  emailjs.init(PUBLIC_KEY);
-}
-
-// ─── Contact Form ───
-document.getElementById('cf').addEventListener('submit', function (e) {
+// ─── Contact Form (n8n) ───
+document.getElementById('cf').addEventListener('submit', async function (e) {
   e.preventDefault();
 
-  const fs  = document.getElementById('fs');
+  console.log("N8N FORM SUBMITTED");
+
+  const fs = document.getElementById('fs');
   const btn = this.querySelector('.btn-submit-accent');
 
   fs.className = '';
-  fs.textContent = 'Sending…';
-  if (btn) btn.style.pointerEvents = 'none';
+  fs.textContent = 'Sending...';
+  btn.disabled = true;
 
-  const handleSuccess = () => {
-    fs.className = 'success';
-    fs.textContent = '✓ Message sent! I\'ll get back to you soon.';
-    this.reset();
-    if (btn) btn.style.pointerEvents = 'auto';
-  };
+  try {
+    const formData = new FormData(this);
 
-  const handleError = (err) => {
-    console.error('Email error:', err);
+    const response = await fetch(
+      'https://arathy1.app.n8n.cloud/webhook-test/portfolio-contact',
+      {
+        method: 'POST',
+        body: formData
+      }
+    );
+
+    console.log('Status:', response.status);
+
+    if (response.ok) {
+      fs.className = 'success';
+      fs.textContent = '✓ Message sent successfully!';
+      this.reset();
+    } else {
+      fs.className = 'error';
+      fs.textContent = '✕ Failed to send message.';
+    }
+
+  } catch (error) {
+    console.error(error);
+
     fs.className = 'error';
-    fs.textContent = '✕ Failed to send — email me directly.';
-    if (btn) btn.style.pointerEvents = 'auto';
-  };
-
-  if (!PUBLIC_KEY || PUBLIC_KEY.startsWith('YOUR_') || SERVICE_ID.startsWith('YOUR_') || typeof emailjs === 'undefined') {
-    console.warn('EmailJS not configured — simulating success.');
-    setTimeout(handleSuccess, 1200);
-  } else {
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this).then(handleSuccess, handleError);
+    fs.textContent = '✕ Failed to send message.';
   }
+
+  btn.disabled = false;
 });

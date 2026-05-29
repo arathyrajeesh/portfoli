@@ -73,7 +73,7 @@ document.getElementById('cf').addEventListener('submit', async function (e) {
     const formData = new FormData(this);
 
     const response = await fetch(
-      'https://arathy1.app.n8n.cloud/webhook-test/portfolio-contact',
+      'https://arathy1.app.n8n.cloud/webhook/portfolio-contact',
       {
         method: 'POST',
         body: formData
